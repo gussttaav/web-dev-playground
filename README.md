@@ -25,7 +25,7 @@ Front-end development is crucial for building interactive and user-friendly web 
 
 ## 🚀 Projects
 
-### 1. [G-Commerce]
+### 1. [G-Commerce](https://github.com/gussttaav/web-dev-playground/tree/g-commerce)
 A simple e-commerce web application built with HTML, JavaScript, and Bootstrap, without using any front-end frameworks. It consumes the Spring Boot REST API from the [G-commerce backend](https://github.com/gussttaav/springboot-projects/tree/gestion-tienda) and includes features such as user authentication, role management, product catalog, shopping cart, checkout system, purchase history and administration panel.
 
 > *More projects will be added over time!*
