@@ -89,18 +89,17 @@ e-commerce-frontend/
 ├── index.html
 ├── dashboard.html
 ├── css/
-│   ├── styles.css
-│   └── dashboard.css
+├── img/
 ├── js/
+│   ├── components/
+│   ├── services/
+│   ├── utils/
 │   ├── auth.js
-│   ├── dashboard.js
-│   └── services/
-│       ├── auth.service.js
-│       ├── product.service.js
-│       ├── purchase.service.js
-│       └── user.service.js
+│   └── dashboard.js
 └── README.md
 ```
+
+
 
 ## 🔒 Security
 
@@ -121,17 +120,9 @@ This application integrates with a REST API developed in Spring Boot. For more d
 Additional implementations are planned using:
 - Angular
 - React
-- Vue.js
+- Next.js
 
 Each implementation will maintain the same base functionality while leveraging the specific features of each framework.
-
-## 👥 Contributing
-
-Contributions are welcome. Please:
-1. Fork the project
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
 
 ## 📄 License
 
