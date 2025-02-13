@@ -50,25 +50,25 @@ This project was developed for educational and learning purposes, serving as an 
 - Bootstrap Icons
 - Fetch API
 - LocalStorage API
+- Docker & Docker Compose
+- Nginx (for production deployment)
 
 ## 📋 Prerequisites
 
 - Modern web browser
-- [Spring Boot Backend](https://github.com/gussttaav/springboot-projects/tree/gestion-tienda) running
+- Docker and Docker Compose installed
 - Node.js and npm (optional, for development)
 
 ## 🚀 Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/your-username/e-commerce-frontend.git
-cd e-commerce-frontend
-```
+### Development Setup
 
-2. Configure the API URL:
-```javascript
-// js/config.js
-const API_URL = 'http://localhost:8080/api';
+1. Ensure the backend is running, use the [docker container](https://hub.docker.com/repository/docker/gussttaav/g-commerce-backend/general) or clone the [backend repository](https://github.com/gussttaav/springboot-projects/tree/gestion-tienda) for this.
+
+2. Clone this repository:
+```bash
+git clone --branch g-commerce --single-branch https://github.com/gussttaav/web-dev-playground.git
+cd g-commerce
 ```
 
 3. Serve the static files:
@@ -82,10 +82,29 @@ npx http-server -p 3000
 
 4. Access the application at `http://localhost:3000`
 
+
+### Docker image
+
+The image for this application is built and pushed to Docker Hub on every push to this branch using GitHub Actions. The complete stack includes:
+
+- Frontend (this repository)
+  - Docker image: `gussttaav/g-commerce-frontend`
+  
+- Backend API
+  - Repository: [Backend Repository](https://github.com/gussttaav/springboot-projects/tree/gestion-tienda)
+  - Docker image: `gussttaav/g-commerce-backend`
+  - API Documentation: http://localhost:8080/swagger-ui.html
+
+- Database
+  - Docker image: `gussttaav/g-commerce-mysql`
+
+Refer to the instructions on the [Docker Hub image page](https://hub.docker.com/repository/docker/gussttaav/g-commerce-frontend/general) to have the full stack running.
+
+
 ## 📁 Project Structure
 
 ```
-e-commerce-frontend/
+g-commerce/
 ├── index.html
 ├── dashboard.html
 ├── css/
@@ -96,10 +115,10 @@ e-commerce-frontend/
 │   ├── utils/
 │   ├── auth.js
 │   └── dashboard.js
+├── Dockerfile
+├── nginx.conf
 └── README.md
 ```
-
-
 
 ## 🔒 Security
 
@@ -108,12 +127,6 @@ e-commerce-frontend/
 - Client-side data validation
 - Secure token handling
 - User roles (ADMIN/USER)
-
-## 🔄 Backend Integration
-
-This application integrates with a REST API developed in Spring Boot. For more details about the backend, check:
-- [Backend Repository](https://github.com/gussttaav/springboot-projects/tree/gestion-tienda)
-- [API Documentation](http://localhost:8080/swagger-ui.html)
 
 ## 🎯 Future Versions
 
@@ -127,9 +140,3 @@ Each implementation will maintain the same base functionality while leveraging t
 ## 📄 License
 
 This project is under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## 🔗 Useful Links
-
-- [Live Demo](https://your-demo-url.com)
-- [Spring Boot Backend](https://github.com/gussttaav/springboot-projects/tree/gestion-tienda)
-- [API Documentation](http://localhost:8080/swagger-ui.html)
