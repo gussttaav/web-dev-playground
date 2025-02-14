@@ -16,6 +16,4 @@ ports:
     onOpen: open-browser
 
 github:
-  prebuilds:
-    branches:
-      - g-commerce  # Enable Gitpod Prebuilds for the branch
+  prebuilds: true
