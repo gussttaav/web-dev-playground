@@ -1,0 +1,51 @@
+services:
+  frontend:
+    image: gussttaav/g-commerce-frontend:latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - app
+    networks:
+      - g-commerce-network
+
+  app:
+    image: gussttaav/g-commerce-backend:latest
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - g-commerce-network
+
+  mysql:
+    image: gussttaav/g-commerce-mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_CHARSET: ${MYSQL_CHARSET}
+      MYSQL_COLLATION: ${MYSQL_COLLATION}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - g-commerce-network
+
+volumes:
+  mysql-data:
+
+networks:
+  g-commerce-network:
+    driver: bridge

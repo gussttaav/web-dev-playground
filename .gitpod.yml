@@ -1,0 +1,21 @@
+image: gitpod/workspace-full
+
+tasks:
+  - init: |
+      git checkout g-commerce  # Ensure Gitpod switches to the correct branch
+      cp .env.example .env  # Copy environment variables
+      docker-compose down  # Stop & remove old containers
+      docker system prune -a -f  # Delete old images & free space
+      docker-compose pull  # Pull latest images from Docker Hub
+      docker-compose up -d  # Start fresh containers
+
+ports:
+  - port: 3000
+    onOpen: open-browser
+  - port: 8080
+    onOpen: open-browser
+
+github:
+  prebuilds:
+    branches:
+      - g-commerce  # Enable Gitpod Prebuilds for the branch
