@@ -31,7 +31,6 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/g-commerce-frontend:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/g-commerce-frontend:${{ github.sha }}
       
       - name: Update Docker Hub Description
         uses: peter-evans/dockerhub-description@v3

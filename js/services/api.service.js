@@ -5,7 +5,7 @@ import { UiUtils } from '../utils/ui.utils.js';
  * Used as prefix for all API requests
  * @constant {string} API_URL - Base URL for API calls
  */
-const API_URL = 'http://localhost:8080/api';
+const API_URL = window.APP_CONFIG.API_URL;
 
 /**
  * Makes an authenticated fetch request

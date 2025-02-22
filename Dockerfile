@@ -1,14 +1,36 @@
-# Use nginx as base image
+# Build stage
+FROM node:alpine as builder
+
+WORKDIR /app
+
+# Install dependencies
+COPY package.json package-lock.json* ./
+RUN npm install
+
+# Copy source
+COPY . .
+
+# Generate initial config with placeholder
+RUN node js/config/generate-config.js
+
+# Final stage
 FROM nginx:alpine
 
 # Copy the static files
-COPY . /usr/share/nginx/html
+COPY --from=builder /app /usr/share/nginx/html
 
-# Copy custom nginx configuration if needed
+# Copy nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy entrypoint script
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+
+# Environment variable with default value
+ENV API_URL=http://localhost:8080/api
 
 # Expose port 80
 EXPOSE 80
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Use entrypoint script
+ENTRYPOINT ["/docker-entrypoint.sh"]

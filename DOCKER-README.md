@@ -2,22 +2,55 @@
 
 Frontend application for the G-commerce e-commerce system, built with HTML, JavaScript, and Bootstrap.
 
-## 🚀 Quick Start
+## 📦 Features
 
-### Prerequisites
-- Docker and Docker Compose installed
-- Git (optional)
+- Responsive design with Bootstrap 5.3
+- User management and authentication
+- Product catalog and shopping cart
+- Admin dashboard
+- Light/dark themes
+- Real-time form validation
 
-### Installation
+## 🛠️ Tech Stack
+
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- Bootstrap 5.3
+- Bootstrap Icons
+- Nginx (for serving static files)
+
+
+## Running the Frontend Container (this image)
+
+### Simple Run with Default Settings
+
+Assumes the backend is running on `http://localhost:8080/api`.
+
+```bash
+docker run -d -p 80:80 gussttaav/g-commerce-frontend:latest
+```
+
+### Run with Custom API URL
+
+```bash
+docker run -d -p 80:80 -e API_URL=http://your-api-url/api gussttaav/g-commerce-frontend:latest
+```
+
+### Environment Variables
+
+- `API_URL`: Backend API endpoint URL (default: `http://localhost:8080/api`)
+
+## Running the Complete Application Stack
+
+This section describes how to run the entire G-Commerce application stack, including the frontend, backend API, and MySQL database.
 
 1. Create a `.env` file with the required environment variables:
 ```env
 MYSQL_ROOT_PASSWORD=your_root_password
-MYSQL_DATABASE=your_database_name
+MYSQL_HOST=localhost:3306
 MYSQL_USER=your_database_user
 MYSQL_PASSWORD=your_database_password
-MYSQL_CHARSET=utf8mb4
-MYSQL_COLLATION=utf8mb4_unicode_ci
 ADMIN_EMAIL=admin@example.com
 ADMIN_PASSWORD=your_admin_password
 ADMIN_NAME=Administrator
@@ -43,7 +76,7 @@ services:
     env_file:
       - .env
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE}
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/shopping
     depends_on:
       mysql:
         condition: service_healthy
@@ -54,11 +87,8 @@ services:
     image: gussttaav/g-commerce-mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_CHARSET: ${MYSQL_CHARSET}
-      MYSQL_COLLATION: ${MYSQL_COLLATION}
     ports:
       - "3306:3306"
     volumes:
@@ -84,37 +114,20 @@ networks:
 docker compose up -d
 ```
 
-The application will be available at `http://localhost:3000`
+The application will be available at:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8080/api
+- MySQL: localhost:3306
+
+### Health Checks
+
+The stack includes health checks for the MySQL service to ensure proper startup order. The frontend will be available once all services are healthy.
 
 ## 🔗 Related Images
 
 - Backend API: `gussttaav/g-commerce-backend`
 - Database: `gussttaav/g-commerce-mysql`
 
-## 📦 Features
-
-- Responsive design with Bootstrap 5.3
-- User management and authentication
-- Product catalog and shopping cart
-- Admin dashboard
-- Light/dark themes
-- Real-time form validation
-
-## 🛠️ Tech Stack
-
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- Bootstrap 5.3
-- Bootstrap Icons
-- Nginx (for serving static files)
-
-## 🔒 Security
-
-- JWT token authentication
-- CSRF protection
-- Client-side validation
-- Secure token handling
 
 ## 📝 License
 

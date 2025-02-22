@@ -51,6 +51,7 @@ This project was developed for educational and learning purposes, serving as an 
 - Fetch API
 - LocalStorage API
 - Docker & Docker Compose
+- Node.js & npm
 - Nginx (for production deployment)
 
 ## 📋 Prerequisites
@@ -71,17 +72,22 @@ git clone --branch g-commerce --single-branch https://github.com/gussttaav/web-d
 cd g-commerce
 ```
 
-3. Serve the static files:
+3. Install dependencies:
 ```bash
-# Using Python
-python -m http.server 3000
-
-# Or using Node.js
-npx http-server -p 3000
+npm install
 ```
 
-4. Access the application at `http://localhost:3000`
+3. Create a `.env` file in the project root:
+```
+API_URL=http://localhost:8080/api
+```
 
+4. Start the development server:
+```bash
+npm start
+```
+
+The application will be available at `http://localhost:3000`.
 
 ### Docker image
 
@@ -98,7 +104,7 @@ The image for this application is built and pushed to Docker Hub on every push t
 - Database
   - Docker image: `gussttaav/g-commerce-mysql`
 
-Refer to the instructions on the [Docker Hub image page](https://hub.docker.com/repository/docker/gussttaav/g-commerce-frontend/general) to have the full stack running.
+Refer to the instructions on the [Docker Hub image page](https://hub.docker.com/repository/docker/gussttaav/g-commerce-frontend/general) to have the full stack running or just this application.
 
 
 ## 📁 Project Structure
@@ -117,12 +123,13 @@ g-commerce/
 │   └── dashboard.js
 ├── Dockerfile
 ├── nginx.conf
+├── package.json
 └── README.md
 ```
 
 ## 🔒 Security
 
-- JWT token authentication
+- Basic authentication
 - CSRF protection
 - Client-side data validation
 - Secure token handling
