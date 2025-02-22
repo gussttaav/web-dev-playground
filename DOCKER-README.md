@@ -45,7 +45,8 @@ docker run -d -p 80:80 -e API_URL=http://your-api-url/api gussttaav/g-commerce-f
 
 This section describes how to run the entire G-Commerce application stack, including the frontend, backend API, and MySQL database.
 
-1. Create a `.env` file with the required environment variables:
+1- Create a `.env` file with the required environment variables:
+
 ```env
 MYSQL_ROOT_PASSWORD=your_root_password
 MYSQL_HOST=localhost:3306
@@ -57,7 +58,8 @@ ADMIN_NAME=Administrator
 CORS_ORIGINS=http://localhost:3000
 ```
 
-2. Create a `docker-compose.yml`:
+2- Create a `docker-compose.yml`:
+
 ```yaml
 services:
   frontend:
@@ -109,7 +111,8 @@ networks:
     driver: bridge
 ```
 
-3. Start the application:
+3- Start the application:
+
 ```bash
 docker compose up -d
 ```
