@@ -28,14 +28,16 @@ Frontend application for the G-commerce e-commerce system, built with HTML, Java
 Assumes the backend is running on `http://localhost:8080/api`.
 
 ```bash
-docker run -d -p 80:80 gussttaav/g-commerce-frontend:latest
+docker run -d -p 3000:80 gussttaav/g-commerce-frontend:latest
 ```
 
 ### Run with Custom API URL
 
 ```bash
-docker run -d -p 80:80 -e API_URL=http://your-api-url/api gussttaav/g-commerce-frontend:latest
+docker run -d -p 3000:80 -e API_URL=http://your-api-url/api gussttaav/g-commerce-frontend:latest
 ```
+
+The application will be available at `http://localhost:3000`.
 
 ### Environment Variables
 
