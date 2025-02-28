@@ -1,5 +1,7 @@
 # G-commerce
 
+🚀 **Live Preview Available**: [Click here to try the application](https://g-commerce-simple.vercel.app/) 🎉
+
 A simple web application for an e-commerce system, built only with HTML, JavaScript, and Bootstrap. No frameworks were used. This project consumes the Spring Boot REST API available at [G-commerce backend](https://github.com/gussttaav/springboot-projects/tree/gestion-tienda).
 
 ## 🎯 Purpose
