@@ -5,12 +5,11 @@ Welcome to the **Web Development Playground** repository! This collection showca
 ## 📋 Table of Contents
 
 1. [About](#-about)
-2. [Projects](#-projects)
-3. [How to Use This Repository](#%EF%B8%8F-how-to-use-this-repository)
-4. [Contributing](#-contributing)
-5. [License](#-license)
-
----
+2. [How to Use This Repository](#%EF%B8%8F-how-to-use-this-repository)
+3. [Projects](#-projects)
+   - [G-Commerce](#1-g-commerce)
+5. [Contributing](#-contributing)
+6. [License](#-license)
 
 ## 📖 About
 
@@ -22,24 +21,22 @@ Front-end development is crucial for building interactive and user-friendly web 
 - Deployment strategies using CI/CD pipelines.
 - Real-world use cases and example applications.
 
+## 🛠️ How to Use This Repository
+
+1. Browse the projects listed below.
+2. Click the links to access individual project repositories.
+3. Each repository contains its own README file with setup instructions and deployment details.
+4. Follow the provided steps to integrate the frontend with its respective backend.
+
 
 ## 🚀 Projects
 
-### 1. [G-Commerce](https://github.com/gussttaav/web-dev-playground/tree/g-commerce)
-A simple e-commerce web application built with HTML, JavaScript, and Bootstrap, without using any front-end frameworks. It consumes the Spring Boot REST API from the [G-commerce backend](https://github.com/gussttaav/springboot-projects/tree/gestion-tienda) and includes features such as user authentication, role management, product catalog, shopping cart, checkout system, purchase history and administration panel.
+### 1. [G-Commerce](https://github.com/gussttaav/g-commerce-front-web-no-framework)
+A simple e-commerce web application built with HTML, JavaScript, and Bootstrap, without using any front-end frameworks. It consumes the Spring Boot REST API from the [G-commerce backend](https://github.com/gussttaav/g-commerce-springboot-api) and includes features such as user authentication, role management, product catalog, shopping cart, checkout system, purchase history and administration panel.
 
-🌐 **Live Demo:** [Try G-Commerce!](https://g-commerce-simple.vercel.app) 
+▶️ [Try G-Commerce](https://g-commerce-front-web-no-framework.vercel.app/) 
 
 > *More projects will be added over time!*
-
----
-
-## 🛠️ How to Use This Repository
-
-1. Browse the projects listed above.
-2. Click the links to access individual project directories.
-3. Each sub-folder contains its own README file with setup instructions and deployment details.
-4. Follow the provided steps to integrate the frontend with its respective backend.
 
 ## 🤝 Contributing
 
